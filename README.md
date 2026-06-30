@@ -1,18 +1,18 @@
 # pdftools
 
-A suite of PDF tools for document production workflows.
+A suite of PDF tools for document production workflows. Each tool lives in its own repo; this repo is the installer.
 
 ## Tools
 
-| Tool | Source | What it does |
-|------|--------|--------------|
-| [pdfclean](https://github.com/marekkowalczyk/pdfclean) | own repo | Compress PDFs in-place via cpdfsqueeze |
-| [mdtopdf](https://github.com/marekkowalczyk/mdtopdf) | own repo | Convert Markdown to PDF via Pandoc |
-| [pdfocr](https://github.com/marekkowalczyk/pdfocr) | own repo | OCR a PDF and embed the text layer |
-| pdflogo | this repo | Stamp a logo onto a PDF |
-| pdfstamp | this repo | Add filename watermark to a PDF |
-| pdfbates | this repo | Add Bates numbers to a PDF |
-| pdfsecret | this repo | Add "Tajemnica przedsiębiorstwa" overlay |
+| Tool | What it does |
+|------|--------------|
+| [pdfclean](https://github.com/marekkowalczyk/pdfclean) | Compress PDFs in-place via cpdfsqueeze |
+| [mdtopdf](https://github.com/marekkowalczyk/mdtopdf) | Convert Markdown to PDF via Pandoc |
+| [pdfocr](https://github.com/marekkowalczyk/pdfocr) | OCR a PDF and embed the text layer |
+| [pdflogo](https://github.com/marekkowalczyk/pdflogo) | Stamp a logo onto a PDF |
+| [pdfstamp](https://github.com/marekkowalczyk/pdfstamp) | Add filename watermark to a PDF |
+| [pdfbates](https://github.com/marekkowalczyk/pdfbates) | Add Bates numbers to a PDF |
+| [pdfsecret](https://github.com/marekkowalczyk/pdfsecret) | Add "Tajemnica przedsiębiorstwa" overlay |
 
 ## Install
 
@@ -22,11 +22,11 @@ cd pdftools
 bash install.sh
 ```
 
-`install.sh` clones any missing repos into the same parent directory and symlinks all tools to `/usr/local/bin`.
+Clones any missing tool repos into the same parent directory as `pdftools`, then symlinks each script to `/usr/local/bin`.
 
 ## Dependencies
 
-- `cpdf` — used by pdflogo, pdfstamp, pdfbates, pdfsecret
-- `cpdfsqueeze` — used by pdfclean
-- `pandoc`, `exiftool`, `yq` — used by mdtopdf
-- See each tool's own repo for its full dependency list
+- `cpdf` — pdflogo, pdfstamp, pdfbates, pdfsecret
+- `cpdfsqueeze` — pdfclean
+- `pandoc`, `exiftool`, `yq` — mdtopdf
+- See each tool's repo for its full dependency list
