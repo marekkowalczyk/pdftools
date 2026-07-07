@@ -62,3 +62,18 @@ When a tool modifies files in-place:
 - Each tool has a bats test suite under `tests/`.
 - Tests use mock backends — no real documents required to run the suite.
 - A tracked pre-commit hook lives in `hooks/`; install with `bash hooks/install.sh`.
+
+## Repo structure
+
+Every tool repo contains:
+
+| File / directory | Purpose |
+|------------------|---------|
+| `toolname` | The script itself |
+| `README.md` | Usage, options, installation, requirements, how it works |
+| `CLAUDE.md` | Context for Claude Code: what the tool does, structure, dependencies, design decisions, pointer to CONVENTIONS.md |
+| `hooks/pre-commit` | Runs the bats suite before every commit |
+| `hooks/install.sh` | Symlinks hooks into `.git/hooks/` |
+| `tests/toolname.bats` | Bats test suite |
+| `AAR.md` | After action review log (POOGI record) |
+| `NEXT-SESSION.md` | Open questions and carry-over items for the next session |
