@@ -24,6 +24,10 @@ bash install.sh
 
 Clones any missing tool repos into the same parent directory as `pdftools`, then symlinks each script to `/usr/local/bin`.
 
+## Conventions
+
+All tools follow shared [CLI and Unix citizenship conventions](CONVENTIONS.md) — error format, output verbosity, standard flags, in-place file handling, and testing requirements.
+
 ## Dependencies
 
 - `cpdf` — pdflogo, pdfstamp, pdfbates, pdfsecret
