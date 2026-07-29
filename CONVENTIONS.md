@@ -10,9 +10,11 @@ Standards for behavior and CLI design across all tools in the suite. When buildi
 
 ## Output verbosity
 
-- **Silent on non-events.** Only report files where something actually happened (compressed, converted, stamped…). Do not print progress headers or "nothing to do" messages.
-- `--quiet` / `-q` suppresses all non-error stdout.
-- A `--dry-run` / `-n` flag is appropriate for any tool that modifies files in-place.
+- **Rule of Silence.** Success is not news. Tools are silent by default — including on files where something happened (compressed, converted, stamped…). Never print progress headers or "nothing to do" messages.
+- `--verbose` / `-v` opts into per-file reporting of what happened.
+- `--quiet` / `-q` suppresses all non-error stdout, including `--verbose` and `--dry-run` output — it always wins.
+- A `--dry-run` / `-n` flag is appropriate for any tool that modifies files in-place. Because its only purpose is to report what would happen, its preview output is shown by default (not gated behind `--verbose`) — but is still suppressed by `--quiet`.
+- Errors and warnings are never affected by any of the above — they always go to stderr.
 
 ## Standard flags
 
@@ -22,7 +24,8 @@ Every tool must support:
 |------|-------|----------|
 | `--help` | `-h` | Print usage and exit 0 |
 | `--version` | | Print `toolname VERSION` and key dependency version, then exit 0 |
-| `--quiet` | `-q` | Suppress non-error output |
+| `--verbose` | `-v` | Report each file as it's acted on (default: silent on success) |
+| `--quiet` | `-q` | Suppress all non-error output; overrides `--verbose` |
 | `--` | | End of options; remaining args are filenames |
 
 `--dry-run` / `-n` where the tool modifies files in-place.
