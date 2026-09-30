@@ -8,7 +8,7 @@ INSTALL_DIR="/usr/local/bin"
 REPOS_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 GITHUB_USER="marekkowalczyk"
 
-TOOLS=(pdfclean pdflogo pdfstamp pdfbates pdfsecret mdtopdf pdfocr)
+TOOLS=(pdfclean pdflogo pdfstamp pdfrem pdfbates pdfsecret mdtopdf pdfocr)
 
 success() { echo "✓ $*"; }
 skip()    { echo "– $*  (already up to date)"; }
