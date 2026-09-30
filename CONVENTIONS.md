@@ -80,3 +80,13 @@ Every tool repo contains:
 | `tests/toolname.bats` | Bats test suite |
 | `AAR.md` | After action review log (POOGI record) |
 | `NEXT-SESSION.md` | Open questions and carry-over items for the next session |
+
+## Adding a tool to the suite
+
+Adding a tool touches three places in `pdftools`, all in the same change:
+
+1. `TOOLS=(…)` in `install.sh`
+2. The tools table in `README.md`
+3. The dependency list in `README.md` (e.g. the `cpdf —` line)
+
+Create the GitHub repo before (or together with) the installer change — a fresh-machine install clones from it. Installing the symlink into `/usr/local/bin` needs `sudo` (the directory is root-owned).
