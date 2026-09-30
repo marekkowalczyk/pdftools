@@ -1,9 +1,5 @@
 # Next Session
 
-## Immediate
-- `pdfrem` is not yet on `PATH` on this machine: `/usr/local/bin` is root-owned. Needs the user to run:
-  `sudo ln -sf /Users/marekkowalczyk/repos/pdfrem/pdfrem /usr/local/bin/pdfrem`, then `pdfrem --version`.
-
 ## Follow-ups opened by this session
 - `pdfrem` was recreated from a description. If the original turns up on another machine, diff its behaviour against the new one (it used cpdf; the new one only removes cpdf-stamped text).
 - Add an integration test that runs real `cpdf` (skipped when cpdf is missing) — the "only stamps are removed" claim is currently a manual check.
