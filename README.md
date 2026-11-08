@@ -14,6 +14,7 @@ A suite of PDF tools for document production workflows. Each tool lives in its o
 | [pdfrem](https://github.com/marekkowalczyk/pdfrem) | Remove stamped-on text (e.g. from pdfstamp) from a PDF |
 | [pdfbates](https://github.com/marekkowalczyk/pdfbates) | Add Bates numbers to a PDF |
 | [pdfsecret](https://github.com/marekkowalczyk/pdfsecret) | Add "Tajemnica przedsiębiorstwa" overlay |
+| [pdfa4](https://github.com/marekkowalczyk/pdfa4) | Normalize pages to A4 (fit, white pad) |
 
 ## Install
 
@@ -31,7 +32,7 @@ All tools follow shared [CLI and Unix citizenship conventions](CONVENTIONS.md) �
 
 ## Dependencies
 
-- `cpdf` — pdflogo, pdfstamp, pdfrem, pdfbates, pdfsecret
+- `cpdf` — pdflogo, pdfstamp, pdfrem, pdfbates, pdfsecret, pdfa4
 - `cpdfsqueeze` — pdfclean
 - `pandoc`, `exiftool`, `yq` — mdtopdf
 - See each tool's repo for its full dependency list
