@@ -2,6 +2,23 @@
 
 Continuous improvement log. Each session ends with a brief review: what went well, what didn't, what to change. This is the POOGI (Process Of Ongoing Improvement) record for this project.
 
+## 2026-11-08 — pdfa4 added; suite made public; tool repos repaired
+
+**What went well:**
+- New-tool checklist held: `install.sh` TOOLS + README table + cpdf deps in one change, then install symlink.
+- Root-owned empty-ish `pdfbates` / `pdfsecret` fixed by renaming aside and re-cloning as the user (no sudo password needed).
+- User clarified `pdftools` is **not** a released product — releases stay on individual tool repos (`pdfa4` got v1.0.0 / v1.1.0).
+
+**What didn't go well:**
+- First pass left `pdftools` wiring uncommitted until the user asked to “update pdftools and install”; should have finished the suite commit in the same breath as creating the tool (recurring theme from 2026-09-30 pdfrem close).
+- `AskQuestion` UI unavailable; interview used letter pickers instead.
+
+**What we'll do differently:**
+- When a new tool is created: GitHub repo + `~/repos/<tool>` + suite wiring commit + PATH install in one pass; state the absolute path in the reply.
+- Do not create GitHub Releases for `pdftools` unless explicitly asked — it is the installer/pointer, not a versioned artifact.
+
+---
+
 ## 2026-09-30 — Recreated pdfrem and added it to the suite
 
 **What went well:**
