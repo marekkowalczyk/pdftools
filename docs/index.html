@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>pdftools — Unix CLI suite for PDF production</title>
+    <meta
+      name="description"
+      content="A versioned suite of Unix command-line tools for PDF document production. Install the bundle; each tool releases on its own semver."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;450;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="frame">
+      <span class="crop crop-tl" aria-hidden="true"></span>
+      <span class="crop crop-tr" aria-hidden="true"></span>
+      <span class="crop crop-bl" aria-hidden="true"></span>
+      <span class="crop crop-br" aria-hidden="true"></span>
+
+      <h1 class="brand">pdftools</h1>
+      <p class="lede">
+        A versioned suite of Unix tools for PDF document production.
+        <span
+          >Each tool ships in its own repo. This bundle pins which releases belong
+          together and installs them in one step.</span
+        >
+      </p>
+
+      <div class="cta">
+        <a
+          class="btn"
+          href="https://github.com/marekkowalczyk/pdftools#install"
+          >Install the suite</a
+        >
+        <a
+          class="btn btn-ghost"
+          href="https://github.com/marekkowalczyk/pdftools"
+          >GitHub</a
+        >
+      </div>
+
+      <pre class="install" tabindex="0"><code>git clone https://github.com/marekkowalczyk/pdftools.git
+cd pdftools &amp;&amp; bash install.sh</code></pre>
+
+      <section class="tools" aria-labelledby="tools-heading">
+        <h2 id="tools-heading">Tools in the suite</h2>
+        <dl>
+          <dt><a href="https://github.com/marekkowalczyk/pdfclean">pdfclean</a></dt>
+          <dd>Compress PDFs in-place via cpdfsqueeze</dd>
+          <dt><a href="https://github.com/marekkowalczyk/mdtopdf">mdtopdf</a></dt>
+          <dd>Convert Markdown to PDF via Pandoc</dd>
+          <dt><a href="https://github.com/marekkowalczyk/pdfocr">pdfocr</a></dt>
+          <dd>OCR a PDF and embed the text layer</dd>
+          <dt><a href="https://github.com/marekkowalczyk/pdflogo">pdflogo</a></dt>
+          <dd>Stamp a logo onto a PDF</dd>
+          <dt><a href="https://github.com/marekkowalczyk/pdfstamp">pdfstamp</a></dt>
+          <dd>Add a filename watermark</dd>
+          <dt><a href="https://github.com/marekkowalczyk/pdfrem">pdfrem</a></dt>
+          <dd>Remove stamped-on text</dd>
+          <dt><a href="https://github.com/marekkowalczyk/pdfbates">pdfbates</a></dt>
+          <dd>Add Bates numbers</dd>
+          <dt><a href="https://github.com/marekkowalczyk/pdfsecret">pdfsecret</a></dt>
+          <dd>Add a confidentiality overlay</dd>
+          <dt><a href="https://github.com/marekkowalczyk/pdfa4">pdfa4</a></dt>
+          <dd>Normalize pages to A4</dd>
+        </dl>
+      </section>
+
+      <footer class="foot">
+        <p>
+          Suite releases are a bill of materials: when a tool gets a new release,
+          the bundle pins that tag and ships a matching suite version. Current
+          release:
+          <a href="https://github.com/marekkowalczyk/pdftools/releases/tag/v1.0.0"
+            >v1.0.0</a
+          >
+          (pdfa4, pdfocr pinned; others join as they ship).
+        </p>
+        <p>
+          MIT licensed ·
+          <a href="https://github.com/marekkowalczyk/pdftools">Source</a>
+        </p>
+      </footer>
+    </main>
+  </body>
+</html>

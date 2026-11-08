@@ -1,0 +1,6 @@
+# pdftools bill of materials — tool=git-tag
+# Only pinned tools are installed by install.sh.
+# Membership (README / TOOLS) may list tools not yet pinned.
+
+pdfa4=v1.1.0
+pdfocr=v1.3.0
