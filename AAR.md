@@ -2,12 +2,30 @@
 
 Continuous improvement log. Each session ends with a brief review: what went well, what didn't, what to change. This is the POOGI (Process Of Ongoing Improvement) record for this project.
 
+## 2026-11-08 — Suite BOM v1.0.0; Pages; staggered release plan
+
+**What went well:**
+- Design first (definition of released, workflow queue, same-sitting suite bump) before cutting `v1.0.0`, so `VERSIONS` + pin-aware `install.sh` matched an agreed contract (2 pins live: pdfa4, pdfocr; Pages 200).
+- Domain candidates stayed out of the public tree; specs/plans moved to personal store for the same reason.
+
+**What didn't go well:**
+- **User correction:** earlier this same day the close said “do not create GitHub Releases for `pdftools`” — that rule is obsolete. The suite is now a versioned BOM; tool releases still stagger separately.
+- **User correction:** holding specs/plans private is **temporary** (unregistered domain leakage), not a permanent “design docs stay off-repo” policy. First write-up treated it as standing privacy.
+- Pages first builds failed until `docs/.nojekyll`; `v1.0.0` was tagged before that fix, so the release tip lagged HEAD until the tag was moved.
+
+**What we'll do differently:**
+- Treat `pdftools` GitHub Releases as expected whenever `VERSIONS` changes (same sitting as the tool publish).
+- Keep unregistered domain names out of git/Pages; after domains are registered, restore `superpowers/` specs/plans to the repo (scrub leftover candidates).
+- When shipping Pages + a suite tag in one sitting: add `.nojekyll` (if static HTML) **before** tagging, or move the tag to HEAD before calling the release done.
+
+---
+
 ## 2026-11-08 — pdfa4 added; suite made public; tool repos repaired
 
 **What went well:**
 - New-tool checklist held: `install.sh` TOOLS + README table + cpdf deps in one change, then install symlink.
 - Root-owned empty-ish `pdfbates` / `pdfsecret` fixed by renaming aside and re-cloning as the user (no sudo password needed).
-- User clarified `pdftools` is **not** a released product — releases stay on individual tool repos (`pdfa4` got v1.0.0 / v1.1.0).
+- User clarified tool semver stays on tool repos; **superseded later the same day** — `pdftools` itself is now BOM-released (see entry above).
 
 **What didn't go well:**
 - First pass left `pdftools` wiring uncommitted until the user asked to “update pdftools and install”; should have finished the suite commit in the same breath as creating the tool (recurring theme from 2026-09-30 pdfrem close).
@@ -15,7 +33,7 @@ Continuous improvement log. Each session ends with a brief review: what went wel
 
 **What we'll do differently:**
 - When a new tool is created: GitHub repo + `~/repos/<tool>` + suite wiring commit + PATH install in one pass; state the absolute path in the reply.
-- Do not create GitHub Releases for `pdftools` unless explicitly asked — it is the installer/pointer, not a versioned artifact.
+- ~~Do not create GitHub Releases for `pdftools`~~ — **void**; see 2026-11-08 BOM entry.
 
 ---
 

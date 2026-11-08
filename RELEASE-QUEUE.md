@@ -2,7 +2,7 @@
 
 Staggered first public releases for suite tools. **One tool per sitting**, then bump `VERSIONS` and cut a **pdftools** patch/minor release in the same sitting.
 
-Design notes (private): personal Cursor agent store → `pdftools-private/superpowers/`.
+Design notes are held privately until custom domain(s) are registered (avoids leaking candidate names); then they can return to the repo.
 
 ## Status
 
