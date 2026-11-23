@@ -49,6 +49,8 @@ If a required dependency is missing, print `dependency: not found` to stderr (st
 - Empty glob match → `toolname: pattern '…' matched no files, skipping` (never treat the pattern as a literal filename). Contributes to exit 1.
 - Non-PDF paths matched by a broad pattern are skipped with the not-a-PDF warning.
 - Shared implementation: vendor [`lib/pdftools-globs.sh`](lib/pdftools-globs.sh) into each bash tool repo and `source` it. Set `TOOL_NAME` then call `pdftools_expand_args files`. Python tools mirror the same semantics.
+- **macOS bash 3.2.** Shared bash helpers must run on `/bin/bash` 3.2 (no `nameref`, no `globstar`). Use portable array/`eval` patterns; implement `**` via `find` when needed.
+- **Live viewer smoke.** Never open stub/`printf` PDF bytes in PDF Expert or Preview. Use a valid minimal PDF (or future `pdfblank`) for real-app checks; mock-`open` bats may keep stubs.
 
 ## In-place file modification
 
