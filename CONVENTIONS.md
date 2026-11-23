@@ -44,6 +44,11 @@ If a required dependency is missing, print `dependency: not found` to stderr (st
 - Accept filenames starting with `-` via `--` end-of-options.
 - Warn and skip duplicate filenames rather than processing twice.
 - Validate files exist before processing; emit `toolname: 'file' not found, skipping` to stderr.
+- **PDF only.** Process paths ending in `.pdf` or `.PDF` only. Any other extension → `toolname: 'file' not a PDF, skipping` (including explicit args). Exit status reflects the skip.
+- **Quoted globs.** After option parsing, each remaining argument is a literal path or a glob pattern. Metacharacters: `*`, `?`, `[…]`, and `**` (bash `globstar`). Expand inside the tool so quoted patterns work (`tool '*.pdf'`, `tool 'docs/**/*.pdf'`).
+- Empty glob match → `toolname: pattern '…' matched no files, skipping` (never treat the pattern as a literal filename). Contributes to exit 1.
+- Non-PDF paths matched by a broad pattern are skipped with the not-a-PDF warning.
+- Shared implementation: vendor [`lib/pdftools-globs.sh`](lib/pdftools-globs.sh) into each bash tool repo and `source` it. Set `TOOL_NAME` then call `pdftools_expand_args files`. Python tools mirror the same semantics.
 
 ## In-place file modification
 
@@ -56,9 +61,9 @@ When a tool modifies files in-place:
 
 ## Batch / directory mode
 
-- `.` or `--all` / `-a` processes all relevant files in the current directory.
+- `.` or `--all` / `-a` processes all `*.pdf` / `*.PDF` files in the current directory (non-recursive).
 - Cannot combine `--all` with explicit filenames; error and exit 1 if attempted.
-- No recursive directory walking by design — the user controls which files are processed.
+- No *implicit* recursive directory walking — `.` / `--all` stay cwd-only. Recursion happens only when the user writes `**` in a pattern (or composes with `find`).
 
 ## Testing
 

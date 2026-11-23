@@ -18,6 +18,7 @@ A **versioned suite** of Unix CLI tools for PDF document production. Each tool l
 | [pdfbates](https://github.com/marekkowalczyk/pdfbates) | Add Bates numbers to a PDF | — (queued) |
 | [pdfsecret](https://github.com/marekkowalczyk/pdfsecret) | Add "Tajemnica przedsiębiorstwa" overlay | — (queued) |
 | [pdfa4](https://github.com/marekkowalczyk/pdfa4) | Normalize pages to A4 (fit, white pad) | v1.1.0 |
+| [pdfopen](https://github.com/marekkowalczyk/pdfopen) | Open PDFs in PDF Expert | — (queued) |
 
 Pins live in [`VERSIONS`](VERSIONS). The installer only installs **pinned** tools. Remaining tools join the BOM as they complete the [release queue](RELEASE-QUEUE.md).
 
@@ -46,6 +47,7 @@ All tools follow shared [CLI and Unix citizenship conventions](CONVENTIONS.md) �
 - `cpdf` — pdflogo, pdfstamp, pdfrem, pdfbates, pdfsecret, pdfa4
 - `cpdfsqueeze` — pdfclean
 - `pandoc`, `exiftool`, `yq` — mdtopdf
+- macOS `open` / PDF Expert — pdfopen
 - See each tool's repo for its full dependency list
 
 ## License

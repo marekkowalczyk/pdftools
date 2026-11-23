@@ -11,7 +11,7 @@ VERSIONS_FILE="$SUITE_DIR/VERSIONS"
 GITHUB_USER="marekkowalczyk"
 
 # Suite membership (may be wider than the current pin set).
-TOOLS=(pdfclean pdflogo pdfstamp pdfrem pdfbates pdfsecret mdtopdf pdfocr pdfa4)
+TOOLS=(pdfclean pdflogo pdfstamp pdfrem pdfbates pdfsecret mdtopdf pdfocr pdfa4 pdfopen)
 
 success() { echo "✓ $*"; }
 skip()    { echo "– $*"; }

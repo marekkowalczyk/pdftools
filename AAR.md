@@ -2,6 +2,25 @@
 
 Continuous improvement log. Each session ends with a brief review: what went well, what didn't, what to change. This is the POOGI (Process Of Ongoing Improvement) record for this project.
 
+## 2026-11-24 — pdfopen + suite-wide globs
+
+**What went well:**
+- Design locked before code (name `pdfopen`, PDF Expert only, PDF-only paths, `**` when written, suite-wide helper vendored per repo) — implementation matched the contract.
+- Canonical `lib/pdftools-globs.sh` + bats, then copy into tools, kept behavior aligned without a runtime suite dependency.
+- `pdfopen` public repo + push landed in the same sitting as the scaffold.
+
+**What didn't go well:**
+- **User correction:** live smoke used invalid `printf` PDF stubs; PDF Expert correctly reported them corrupted. Unit mocks are fine; real-viewer smoke needs valid PDFs (or future `pdfblank`).
+- Bash 3.2 (macOS `/bin/bash`) has no nameref/`globstar` — helper had to be rewritten + `find` fallback for `**` after first bats failures.
+- Duplicate-filename exit status changed to 1 (skip counts as failure); existing bats expected 0 until updated.
+
+**What we'll do differently:**
+- For any real PDF Expert/Preview smoke: use a valid minimal PDF (xref/trailer) or wait for `pdfblank` — never open stub bytes in a viewer.
+- Queue `pdfblank` (blank A4 PDF creator) as a future suite tool; do not invent ad-hoc fixture generators in smoke scripts.
+- On macOS, assume bash 3.2 for shared helpers unless the shebang guarantees otherwise; avoid `local -n` and rely on `find` for `**`.
+
+---
+
 ## 2026-11-08 — Suite BOM v1.0.0; Pages; staggered release plan
 
 **What went well:**
